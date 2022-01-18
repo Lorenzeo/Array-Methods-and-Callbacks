@@ -29,8 +29,9 @@ hint - you should be looking at the stage key inside of the objects
 
 function getFinals(data) {
     const newData = data.filter(function(item){
-        return item.Stage === 'Final'
+        return item.Stage === 'Final';
     });
+    return newData;
 }
 
 
