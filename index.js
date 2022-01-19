@@ -79,16 +79,12 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(array, getFinals, getYears, getWinners) {
-    const finals = getFinals(array)
-    const winners = getYears(array, getFinals)
-    const years = getWinners(array, getFinals)
+function getWinnersByYear(array, getFinalsCB, getYearsCB, getWinnersCB) {
+    const winners = getWinnersCB(array, getFinalsCB)
+    const years = getYearsCB(array, getFinalsCB)
+    getFinalsCB(array)
 
-    winners.map(function(item, index){
-        return `In ${years[index]}, ${item} won the world cup!`
-    })
-
-    
+    return winners.map((item, index)=> `In ${years[index]}, ${[item]} won the world cup!`)
 }
 
 
